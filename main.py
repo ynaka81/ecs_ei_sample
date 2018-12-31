@@ -23,4 +23,4 @@ batch_size = int(os.environ['BATCH_SIZE'])
 device = os.environ['DEVICE']
 ImageClassifier(model_name, batch_size, device)
 # Start server.
-app.run(host='0.0.0.0', port=5000, debug=True)
+app.run(host='0.0.0.0', port=5000, threaded=False)
