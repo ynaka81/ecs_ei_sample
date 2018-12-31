@@ -7,6 +7,7 @@ from modules.predict import ImageClassifier
 from modules.resources import Index, Classify
 
 
+# I don't know the reason but it works by removing AWS_CONTAINER_CREDENTIALS_RELATIVE_URI and using instance role.
 if 'AWS_CONTAINER_CREDENTIALS_RELATIVE_URI' in os.environ:
     del os.environ['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
     del os.environ['ECS_CONTAINER_METADATA_URI']
