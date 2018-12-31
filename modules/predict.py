@@ -14,11 +14,15 @@ class ImageClassifier:
 
     :param model_name: (str) The pre-trained model name.
     :param batch_size: (int) The batch size of model.
+    :param device: (str) The device name such as cpu or ei.
     """
 
-    def __init__(self, model_name: str, batch_size: int) -> None:
+    def __init__(self, model_name: str, batch_size: int, device: str) -> None:
         # Prepare context.
-        ctx = mx.cpu()
+        if device == 'ei':
+            ctx = mx.eia()
+        else:
+            ctx = mx.cpu()
         # Download model.
         downloader = ModelDownloader()
         model_path = downloader(model_name)
